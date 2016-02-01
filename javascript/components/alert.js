@@ -1,34 +1,27 @@
-define([
-    'views/view',
-    'text!templates/alert.html',
-    'handlebarsHelpers',
-    'underscore'
-], function (View, template, Handlebars, _) {
+import View from '../views/view';
+//import _ from 'underscore';
 
-    'use strict';
+const fs = require('fs');
+const template = fs.readFileSync(__dirname + '/../templates/alert.html', 'utf8');
 
-    var AlertView = View.extend({
+class AlertView extends View {
 
-        template: Handlebars.compile(template),
+    getMessage(errors) {
+        return 'The data provided was invalid. ' + errors.join('. ') + '.';
+    }
 
-        getMessage: function (errors) {
-            return 'The data provided was invalid. ' + errors.join('. ') + '.';
-        },
+    initialize(options) {
+        options = options || {};
+        this.errors = options.errors;
+        this.render();
+    }
 
-        initialize: function (options) {
-            options = options || {};
-            this.errors = options.errors;
-            this.render();
-        },
+    getTemplateData() {
+        return {
+            message: this.getMessage(this.errors)
+        };
+    }
 
-        getTemplateData: function () {
-            return {
-                message: this.getMessage(this.errors)
-            };
-        }
+}
 
-    });
-
-    return AlertView;
-
-});
+export default AlertView;
