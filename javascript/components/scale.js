@@ -1,32 +1,32 @@
-define([
-    'views/view',
-    'text!templates/scale.html',
-    'handlebarsHelpers'
-], function (View, template, Handlebars) {
+import View from '../views/view';
+import _ from 'underscore';
 
-    'use strict';
+const fs = require('fs');
+const template = fs.readFileSync(__dirname + '/../templates/scale.html', 'utf8');
 
-    var ScaleView = View.extend({
+class ScaleView extends View {
 
-        template: Handlebars.compile(template),
+    get template() {
+        return _.template(template);
+    }
 
-        events: {
+    get events() {
+        return {
             'change .js-scale': 'changeScale'
-        },
+        };
+    }
 
-        initialize: function (options) {
-            options = options || {};
-            this.model = options.appState;
-            this.render();
-        },
+    initialize(options) {
+        options = options || {};
+        this.model = options.appState;
+        this.render();
+    }
 
-        changeScale: function () {
-            var scale = this.model.get('scale') === 'english' ? 'metric' : 'english';
-            this.model.set('scale', scale);
-        }
+    changeScale() {
+        var scale = this.model.get('scale') === 'english' ? 'metric' : 'english';
+        this.model.set('scale', scale);
+    }
 
-    });
+}
 
-    return ScaleView;
-
-});
+export default ScaleView;
