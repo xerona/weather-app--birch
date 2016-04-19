@@ -1,4 +1,8 @@
 [![Build Status](https://travis-ci.org/craigmichaelmartin/weather-app--birch.svg?branch=master)](https://travis-ci.org/craigmichaelmartin/weather-app--birch)
+[![bitHound Overall Score](https://www.bithound.io/github/xerona/weather-app--birch/badges/score.svg)](https://www.bithound.io/github/xerona/weather-app--birch)
+[![bitHound Dependencies](https://www.bithound.io/github/xerona/weather-app--birch/badges/dependencies.svg)](https://www.bithound.io/github/xerona/weather-app--birch/master/dependencies/npm)
+[![bitHound Dev Dependencies](https://www.bithound.io/github/xerona/weather-app--birch/badges/devDependencies.svg)](https://www.bithound.io/github/xerona/weather-app--birch/master/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/xerona/weather-app--birch/badges/code.svg)](https://www.bithound.io/github/xerona/weather-app--birch)
 
 ##### A simple javascript weather web app  
 using the latest EcmaScript 2015 (ES6) additions,  
